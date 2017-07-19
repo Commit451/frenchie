@@ -1,17 +1,19 @@
 package com.commit451.frenchie
 
+import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import org.junit.Assert
 import org.junit.Test
 
 
 
-class ObjectToListAdapterFactoryTest {
+class ObjectOrArrayTest {
 
     companion object {
         fun createMoshi(): Moshi {
             return Moshi.Builder()
-                    .add(ObjectToListAdapterFactory())
+                    .add(ObjectOrArrayAdapterFactory())
+                    .add(KotlinJsonAdapterFactory())
                     .build()
         }
     }

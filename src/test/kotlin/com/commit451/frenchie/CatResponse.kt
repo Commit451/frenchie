@@ -2,6 +2,6 @@ package com.commit451.frenchie
 
 class CatResponse {
 
-    @ObjectToList
+    @ObjectOrArrayJsonQualifier
     lateinit var cats: List<Cat>
 }
