@@ -29,9 +29,10 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     compile "com.squareup.moshi:moshi:$moshiVersion"
-    compile "com.squareup.moshi:moshi-kotlin:$moshiVersion"
 
     testCompile 'junit:junit:4.12'
+
+    testCompile "com.squareup.moshi:moshi-kotlin:$moshiVersion"
 
     testCompile 'com.google.guava:guava:22.0'
 }

@@ -1,5 +1,10 @@
 {
-  "cats": [{
-    "name": "Sputnik"
-  }]
+  "cats": [
+    {
+      "name": "Sputnik"
+    },
+    {
+      "name": "Lovelace"
+    }
+  ]
 }

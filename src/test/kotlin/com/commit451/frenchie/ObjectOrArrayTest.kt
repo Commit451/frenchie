@@ -6,17 +6,17 @@ import org.junit.Assert
 import org.junit.Test
 
 
-
 class ObjectOrArrayTest {
 
     companion object {
         fun createMoshi(): Moshi {
             return Moshi.Builder()
-                    .add(ObjectOrArrayAdapterFactory())
                     .add(KotlinJsonAdapterFactory())
+                    .add(ObjectOrArrayAdapterFactory())
                     .build()
         }
     }
+
     @Test
     fun listTest() {
 
@@ -26,9 +26,11 @@ class ObjectOrArrayTest {
 
         val jsonAdapter = moshi.adapter(CatResponse::class.java)
 
-        val catsResponse = jsonAdapter.fromJson(listJson)
+        val catsResponse = jsonAdapter.fromJson(listJson)!!
 
         Assert.assertNotNull(catsResponse)
+        Assert.assertTrue(catsResponse.cats.size == 2)
+        Assert.assertTrue(catsResponse.cats[1].name == "Lovelace")
     }
 
     @Test
@@ -40,8 +42,10 @@ class ObjectOrArrayTest {
 
         val jsonAdapter = moshi.adapter(CatResponse::class.java)
 
-        val catsResponse = jsonAdapter.fromJson(listJson)
+        val catsResponse = jsonAdapter.fromJson(listJson)!!
 
         Assert.assertNotNull(catsResponse)
+        Assert.assertTrue(catsResponse.cats.size == 1)
+        Assert.assertTrue(catsResponse.cats.first().name == "Sputnik")
     }
 }
