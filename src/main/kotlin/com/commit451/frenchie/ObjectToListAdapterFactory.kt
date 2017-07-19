@@ -8,10 +8,6 @@ import java.lang.reflect.Type
 
 class ObjectToListAdapterFactory : JsonAdapter.Factory {
 
-    @Retention(AnnotationRetention.RUNTIME)
-    @JsonQualifier
-    annotation class ObjectToList
-
     override fun create(type: Type, annotations: Set<Annotation>?, moshi: Moshi): JsonAdapter<*>? {
         if (annotations != null && annotations.isNotEmpty()) {
             for (annotation in annotations) {
