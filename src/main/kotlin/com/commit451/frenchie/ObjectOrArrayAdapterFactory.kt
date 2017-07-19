@@ -13,11 +13,11 @@ class ObjectOrArrayAdapterFactory : JsonAdapter.Factory {
     override fun create(type: Type, annotations: Set<Annotation>?, moshi: Moshi): JsonAdapter<*>? {
         if (annotations != null && annotations.isNotEmpty()) {
             for (annotation in annotations) {
-                if (annotation is ObjectOrArrayJsonQualifier) {
+                if (annotation is ObjectOrArray) {
                     val rawType = Types.getRawType(type)
                     val collectionElementType = Types.collectionElementType(type, rawType)
-                    val objectDelegate: JsonAdapter<Any> = moshi.nextAdapter(this, collectionElementType, Types.nextAnnotations(annotations, ObjectOrArrayJsonQualifier::class.java))
-                    val listDelegate: JsonAdapter<Any> = moshi.nextAdapter(this, type, Types.nextAnnotations(annotations, ObjectOrArrayJsonQualifier::class.java))
+                    val objectDelegate: JsonAdapter<Any> = moshi.nextAdapter(this, collectionElementType, Types.nextAnnotations(annotations, ObjectOrArray::class.java))
+                    val listDelegate: JsonAdapter<Any> = moshi.nextAdapter(this, type, Types.nextAnnotations(annotations, ObjectOrArray::class.java))
                     return object : JsonAdapter<Any>() {
 
                         @Throws(IOException::class)

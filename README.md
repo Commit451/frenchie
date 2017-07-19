@@ -1,5 +1,5 @@
 # frenchie
-Additional classes and extensions for Moshi
+Additional classes and extensions for [Moshi](https://github.com/square/moshi)
 
 [![Build Status](https://travis-ci.org/Commit451/frenchie.svg?branch=master)](https://travis-ci.org/Commit451/frenchie) [![](https://jitpack.io/v/Commit451/frenchie.svg)](https://jitpack.io/#Commit451/frenchie)
 
@@ -44,7 +44,7 @@ This is a challenge to deal with with JSON parsing libraries. To overcome this, 
 ```kotlin
 class CatResponse {
 
-    @ObjectOrArrayJsonQualifier
+    @ObjectOrArray
     lateinit var cats: List<Cat>
 }
 ```
