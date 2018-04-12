@@ -1,6 +1,5 @@
 package com.commit451.frenchie
 
-import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import org.junit.Assert
 import org.junit.Test
@@ -11,7 +10,6 @@ class ObjectOrArrayTest {
     companion object {
         fun createMoshi(): Moshi {
             return Moshi.Builder()
-                    .add(KotlinJsonAdapterFactory())
                     .add(ObjectOrArrayAdapterFactory())
                     .build()
         }

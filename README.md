@@ -44,7 +44,7 @@ This is a challenge to deal with with JSON parsing libraries. To overcome this, 
 ```kotlin
 class CatResponse {
 
-    @ObjectOrArray
+    @field:ObjectOrArray
     lateinit var cats: List<Cat>
 }
 ```
@@ -52,8 +52,6 @@ and when you are creating your `Moshi` instance:
 ```kotlin
 Moshi.Builder()
     .add(ObjectOrArrayAdapterFactory())
-    //if applicable
-    .add(KotlinJsonAdapterFactory())
     .build()
 ```
 
@@ -63,7 +61,7 @@ frenchie is named after the breed of the dog that [Moshi itself was named after]
 License
 --------
 
-    Copyright 2017 Commit 451
+    Copyright 2018 Commit 451
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
